@@ -1,33 +1,21 @@
+
+import 'package:easy_register/screens/screens.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Easy register',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Easy register"),
-      ),
-      body: const Text("Aqui inicia algo nuevo"),
+      debugShowCheckedModeBanner: false,
+      title: 'easyRegister',
+      initialRoute: 'login',
+      routes: {
+        'login': ( _ )=> LoginScreen(),
+        'register': ( _ )=> RegisterScreen(),
+      },
     );
   }
 }
