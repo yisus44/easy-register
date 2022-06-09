@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-
+class NavbarLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Register'),
         elevation: 0,
         leading: Container(
-          child: 
-            Image.asset('assets/logo_chico_fg.PNG'),
-            margin: EdgeInsets.only(left: 5),
-            //padding: EdgeInsets.only(left: 10),
+          child: Image.asset('assets/logo_chico_fg.PNG'),
           ),
         ),
     );

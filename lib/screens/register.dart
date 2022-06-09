@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 
 class RegisterScreen extends StatelessWidget {
 
@@ -7,11 +9,26 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: const Center(
-          child: Text('Register Screen'),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('Register'),
+        elevation: 0,
+        
         ),
-      ),
+
+      body: Column(
+        children: [
+
+          LogoCompleto(),
+
+          //campos
+
+          //button registrarse
+
+          
+
+        ],
+      )
     );
   }
 }
