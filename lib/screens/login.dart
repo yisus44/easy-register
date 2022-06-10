@@ -17,11 +17,13 @@ class LoginScreen extends StatelessWidget {
         ),
 
       body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           LogoCompleto(),
 
-          //campos
+          Name(),
+          //text y textfield
 
           //button
 
@@ -35,3 +37,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+

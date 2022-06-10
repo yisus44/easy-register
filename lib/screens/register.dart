@@ -22,6 +22,7 @@ class RegisterScreen extends StatelessWidget {
           LogoCompleto(),
 
           //campos
+          Name()
 
           //button registrarse
 

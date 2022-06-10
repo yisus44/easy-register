@@ -1,3 +1,4 @@
+import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,9 +12,18 @@ class HomeScreen extends StatelessWidget {
         leading: Container(
           child: 
             Image.asset('assets/logo_chico_fg.PNG'),
-            margin: EdgeInsets.only(left: 5),
+            margin: const EdgeInsets.only(left: 5),
             //padding: EdgeInsets.only(left: 10),
           ),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CardSlider(),
+              CardSlider(),
+              CardSlider(),
+            ],
+          ) 
         ),
     );
   }
