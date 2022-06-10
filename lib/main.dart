@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'easyRegister',
-      initialRoute: 'login',
+      initialRoute: 'homeScreen',
       routes: {
         'login':    ( _ )=> LoginScreen(),
         'register': ( _ )=> RegisterScreen(),

@@ -9,7 +9,7 @@ class NavbarLogo extends StatelessWidget {
         title: const Text('Register'),
         elevation: 0,
         leading: Container(
-          child: Image.asset('assets/logo_chico_fg.PNG'),
+          child: Image.asset('assets/logo_chico (2).png'),
           ),
         ),
     );
