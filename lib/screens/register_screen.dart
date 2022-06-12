@@ -22,8 +22,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         initialDate: DateTime.now(),
         firstDate: DateTime(1900),
         lastDate: DateTime(2100));
-    dateController.text = date.toString().substring(0, 10);
-    print(dateController.text);
+    if (date != null) {
+      print(dateController.text);
+      dateController.text = date.toString().substring(0, 10);
+    }
   }
 
   @override
@@ -51,10 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 typeText: true, titleText: 'Confirmar contraseña'),
 
             const AuthenticationButton(buttonText: 'Registrarse'),
-
-
-        ],
-      )
-    );
+          ],
+        ));
   }
 }
