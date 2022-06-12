@@ -11,6 +11,7 @@ class AuthService {
   const AuthService(this.baseUrl);
 
   //Function to get all classes
+  //NEED: Test it out
   Future<ResponseDto<Class>> getAllClasses() async {
     final String url = "$baseUrl/classes";
 
