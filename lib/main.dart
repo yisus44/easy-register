@@ -11,11 +11,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'easyRegister',
-      initialRoute: 'homeScreen',
+      initialRoute: 'login',
       routes: {
         'login':    ( _ )=> LoginScreen(),
         'register': ( _ )=> RegisterScreen(),
         'homeScreen': ( _ )=> HomeScreen(),
+        'classScreen': ( _ )=> ClassScreen(),
+
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
@@ -25,3 +27,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+

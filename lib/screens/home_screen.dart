@@ -18,10 +18,10 @@ class HomeScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: [
-              CardSlider(),
-              CardSlider(),
-              CardSlider(),
+            children: const [
+              CardSlider(carouselName: 'Clases', cardsCount: 10,),
+              CardSlider(carouselName: 'Presentaciones easer', cardsCount: 10,),
+              CardSlider(carouselName: 'Material', cardsCount: 10,),
             ],
           ) 
         ),

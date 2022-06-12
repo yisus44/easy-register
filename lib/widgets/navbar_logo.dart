@@ -8,10 +8,8 @@ class NavbarLogo extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Register'),
         elevation: 0,
-        leading: Container(
-          child: Image.asset('assets/logo_chico (2).png'),
+        leading:  Image.asset('assets/logo_chico (2).png'),
           ),
-        ),
     );
   }
 }

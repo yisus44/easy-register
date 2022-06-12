@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 
 class CardSlider extends StatelessWidget {
   
+  final String carouselName;
+  final int cardsCount;
+
+
+  const CardSlider({
+    Key? key,
+    required this.carouselName,
+    required this.cardsCount
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +22,9 @@ class CardSlider extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           
-          const Padding(
-            padding: EdgeInsets.symmetric( horizontal: 20),
-            child: Text('Clases', style: TextStyle( fontSize: 20, fontWeight: FontWeight.bold)
+          Padding(
+            padding: const EdgeInsets.symmetric( horizontal: 20),
+            child: Text('${carouselName}', style: const TextStyle( fontSize: 20, fontWeight: FontWeight.bold)
             ),
           ),
 
@@ -24,7 +33,7 @@ class CardSlider extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: cardsCount,
               itemBuilder: (_, int index)=> _CardPoster()
             ),
           ),

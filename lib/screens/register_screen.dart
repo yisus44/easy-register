@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 import '../widgets/widgets.dart';
@@ -22,8 +23,17 @@ class RegisterScreen extends StatelessWidget {
           LogoCompleto(),
 
           //campos
-          Name()
+          const AuthenticationFields(typeText: false, titleText: 'Nombre'),
+          const AuthenticationFields(typeText: false, titleText: 'Fecha de nacimiento'),
+          const AuthenticationFields(typeText: true, titleText: 'Contraseña'),
+          const AuthenticationFields(typeText: true, titleText: 'Confirmar contraseña'),
 
+          const AuthenticationButton(buttonText: 'Registrarse')
+          
+          //DateTimeField(),
+          //MyHomePage(),
+
+  
           //button registrarse
 
           
