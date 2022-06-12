@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:dio/dio.dart';
+
 import 'package:easy_register/core/models/auth/requests/login_request.dart';
 import 'package:easy_register/core/models/auth/responses/login_response.dart';
 
