@@ -29,14 +29,6 @@ class RegisterScreen extends StatelessWidget {
           const AuthenticationFields(typeText: true, titleText: 'Confirmar contraseña'),
 
           const AuthenticationButton(buttonText: 'Registrarse')
-          
-          //DateTimeField(),
-          //MyHomePage(),
-
-  
-          //button registrarse
-
-          
 
         ],
       )

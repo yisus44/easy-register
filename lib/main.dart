@@ -1,6 +1,7 @@
-
-import 'package:easy_register/screens/screens.dart';
+import 'package:easy_register/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_register/router/app_routes.dart';
+
 
 
 void main() => runApp(MyApp());
@@ -11,19 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'easyRegister',
-      initialRoute: 'login',
-      routes: {
-        'login':    ( _ )=> LoginScreen(),
-        'register': ( _ )=> RegisterScreen(),
-        'homeScreen': ( _ )=> HomeScreen(),
-        'classScreen': ( _ )=> ClassScreen(),
-
-      },
-      theme: ThemeData.light().copyWith(
-        appBarTheme: const AppBarTheme(
-          color:Color.fromARGB(255, 206, 206, 206)
-        )
-      ),
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.routes,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+      theme: AppTheme.lightTheme
     );
   }
 }
