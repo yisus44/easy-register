@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 
-class NavbarLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
