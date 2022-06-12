@@ -27,16 +27,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(60.0);
 }
-//''
-// SizedBox(
-//           child: Transform.scale(
-//               scale: 2,
-//               child: IconButton(
-//                 onPressed: null,
-//                 padding: const EdgeInsets.all(0.0),
-//                 icon: Image.asset(
-//                   '',
-//                   height: 700.0,
-//                 ),
-//               )),
-//         ),

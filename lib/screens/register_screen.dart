@@ -1,6 +1,4 @@
-import 'package:easy_register/widgets/authenticationLabel.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/widgets.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -52,9 +50,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const AuthenticationFields(
                 typeText: true, titleText: 'Confirmar contraseña'),
 
-            const AuthenticationButton(buttonText: 'Registrarse')
+            const AuthenticationButton(buttonText: 'Registrarse'),
 
-          const AuthenticationButton(buttonText: 'Registrarse')
 
         ],
       )

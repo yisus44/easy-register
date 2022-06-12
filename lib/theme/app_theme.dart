@@ -14,5 +14,15 @@ class AppTheme{
     ),
 
   );
+  static final ThemeData darkTheme = ThemeData.dark().copyWith(
+
+    primaryColor: Colors.indigo,
+
+    appBarTheme: const AppBarTheme(
+      color: primary,
+      elevation: 0
+    ),
+
+  );
 
 }
