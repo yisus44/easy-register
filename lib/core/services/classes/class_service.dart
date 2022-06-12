@@ -1,18 +1,17 @@
 import 'package:dio/dio.dart';
 
-import 'package:easy_register/core/models/auth/responses/register_response.dart';
 import 'package:easy_register/core/models/common/class.dart';
 
 import '../../models/response_dto.dart';
 
-class AuthService {
+class ClassService {
   final String baseUrl;
 
-  const AuthService(this.baseUrl);
+  const ClassService(this.baseUrl);
 
   //Function to get all classes
   //NEED: Test it out
-  Future<ResponseDto<Class>> getAllClasses() async {
+  Future<ResponseDto<List<Class>>> getAllClasses() async {
     final String url = "$baseUrl/classes";
 
     int statusCode = 500;
@@ -21,16 +20,14 @@ class AuthService {
       if (response.data == null) {
         throw Exception("Error reaching the server, please try again later");
       }
-
       final data = response.data["data"];
       statusCode = response.data["status"] as int;
       final error = response.data["error"];
-      final Class classResponse = Class.fromJson(data);
-
-      return ResponseDto<Class>(statusCode, classResponse, error);
+      final List<Class> classResponse = Class.fromJsonList(data);
+      return ResponseDto<List<Class>>(statusCode, classResponse, error);
     } catch (e) {
-      final Class classResponse = Class.fromError();
-      return ResponseDto<Class>(
+      final List<Class> classResponse = [Class.fromError()];
+      return ResponseDto<List<Class>>(
           statusCode, classResponse, (e as DioError).error);
     }
   }

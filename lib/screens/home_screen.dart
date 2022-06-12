@@ -1,4 +1,5 @@
 import 'package:easy_register/widgets/widgets.dart';
+import '../core/services/classes/class_service.dart';
 import '../widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,15 @@ class HomeScreen extends StatelessWidget {
           CardSlider(),
           CardSlider(),
           CardSlider(),
+          ElevatedButton(
+              onPressed: () async {
+                final ClassService service = ClassService(
+                    "https://gentle-mountain-69254.herokuapp.com/api/v1");
+                final response = await service.getAllClasses();
+                int sum = 3 + 2;
+                sum += 2;
+              },
+              child: const Text("hola esquizo"))
         ],
       )),
     );

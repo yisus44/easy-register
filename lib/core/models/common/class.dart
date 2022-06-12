@@ -7,13 +7,22 @@ class Class {
   final String name;
   final Teacher teacher;
 
-  factory Class.fromJson(Map<String, dynamic> parsedJson) {
-    return Class(
-      parsedJson['id'],
-      parsedJson['teacherId'],
-      parsedJson['name'],
-      parsedJson['teacher'],
-    );
+  static List<Class> fromJsonList(List<dynamic> parsedJson) {
+    List<Class> classes = parsedJson.map((classSchool) {
+      final teacher = classSchool['teacher'];
+      final user = teacher["user"];
+      return Class(
+        classSchool['id'],
+        classSchool['teacher_id'],
+        classSchool['name'],
+        Teacher(
+            teacher['id'],
+            teacher['user_id'],
+            DateTime.parse(teacher['birth_date']),
+            User(user["name"], user["email"], user["id"])),
+      );
+    }).toList();
+    return classes;
   }
 
   factory Class.fromError() {
