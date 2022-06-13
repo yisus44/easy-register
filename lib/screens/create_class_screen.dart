@@ -12,7 +12,7 @@ class CreateClassScreen extends StatefulWidget {
 
 class _CreateClassScreenState extends State<CreateClassScreen> {
   List<bool> _selections = List.generate(2, (_) => false);
-
+  final List<CardPayload> cards = [CardPayload("Descripcion", "hola")];
   void selectStudents() {}
 
   void selectHours() {}
@@ -58,7 +58,11 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           ],
         ),
         const GenericLabel("Encuadre de asignaciones", 15),
-        const CardSlider(carouselName: "Rubros", cardsCount: 1),
+        CardSlider(
+          carouselName: "Rubros",
+          cardsCount: 1,
+          cardPayload: cards,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
@@ -111,7 +115,11 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           ],
         ),
         const AuthenticationLabel("Encuadre de asignaciones"),
-        const CardSlider(carouselName: "Rubros", cardsCount: 2),
+        CardSlider(
+          carouselName: "Rubros",
+          cardsCount: 2,
+          cardPayload: cards,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [

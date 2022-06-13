@@ -2,8 +2,8 @@ import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ClassScreen extends StatelessWidget {
-
-var size,height,width;
+  final List<CardPayload> cards = [CardPayload("Descripcion", "hola")];
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -11,20 +11,22 @@ var size,height,width;
     width = size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Nombre de la clase',
-        style: TextStyle(color:Colors.black),
+        appBar: AppBar(
+          title: const Text(
+            'Nombre de la clase',
+            style: TextStyle(color: Colors.black),
+          ),
+          elevation: 0,
         ),
-        elevation: 0,
-        
-        ),
-      body: Column(
-        children: [
-          TextIcon(),
-          const CardSlider(carouselName: 'Clases',cardsCount: 2,)
-        ],)
-      
-    );
+        body: Column(
+          children: [
+            TextIcon(),
+            CardSlider(
+              carouselName: 'Clases',
+              cardsCount: 2,
+              cardPayload: cards,
+            )
+          ],
+        ));
   }
 }

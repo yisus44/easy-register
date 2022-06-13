@@ -3,6 +3,8 @@ import '../core/services/classes/class_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<CardPayload> cards = [CardPayload("Descripcion", "hola")];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,17 +13,20 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          const CardSlider(
+          CardSlider(
             carouselName: 'Clases',
             cardsCount: 10,
+            cardPayload: cards,
           ),
-          const CardSlider(
+          CardSlider(
             carouselName: 'Presentaciones easer',
             cardsCount: 10,
+            cardPayload: cards,
           ),
-          const CardSlider(
+          CardSlider(
             carouselName: 'Material',
             cardsCount: 10,
+            cardPayload: cards,
           ),
           ElevatedButton(
               onPressed: () async {
