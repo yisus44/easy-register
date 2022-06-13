@@ -14,7 +14,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
         title: Text(message,
             style: const TextStyle(
-                color: Color.fromARGB(255, 11, 111, 134), fontSize: 18)),
+                //color: Color.fromARGB(255, 11, 111, 134),
+                color: Colors.white,
+                fontSize: 18)),
         leadingWidth: 120,
         leading: Padding(
           padding: const EdgeInsets.only(

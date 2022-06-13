@@ -1,5 +1,9 @@
+import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/genericField.dart';
+import '../widgets/genericLabel.dart';
 
 class CreateClassScreen extends StatefulWidget {
   @override
@@ -17,19 +21,22 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     return SingleChildScrollView(
         child: Column(
       children: [
-        const AuthenticationFields(
-            typeText: true, titleText: 'Nombre de la clase'),
+        const GenericField(
+            typeText: true,
+            titleText: 'Nombre de la clase',
+            customFontSize: 20),
         GestureDetector(
-          child: const AuthenticationLabel("Alumnos"),
+          child: const GenericLabel("Alumnos", 15),
           onTap: selectStudents,
         ),
         GestureDetector(
-          child: const AuthenticationLabel("Horarios"),
+          child: const GenericLabel("Horarios", 15),
           onTap: selectStudents,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const AuthenticationLabel("Calificacion basada en"),
+            const GenericLabel("Calificacion basada en", 15),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: ToggleButtons(
@@ -50,13 +57,13 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             )
           ],
         ),
-        const AuthenticationLabel("Encuadre de asignaciones"),
-        const CardSlider(carouselName: "Rubros", cardsCount: 2),
+        const GenericLabel("Encuadre de asignaciones", 15),
+        const CardSlider(carouselName: "Rubros", cardsCount: 1),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            AuthenticationButton(buttonText: "Crear"),
-            AuthenticationButton(buttonText: "Cancelar")
+            GenericButton(buttonText: "Crear"),
+            GenericButton(buttonText: "Cancelar")
           ],
         )
       ],
@@ -67,19 +74,22 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     return SingleChildScrollView(
         child: Column(
       children: [
-        const AuthenticationFields(
-            typeText: true, titleText: 'Nombre de la clase'),
+        const GenericField(
+          typeText: true,
+          titleText: 'Nombre de la clase',
+          customFontSize: 15,
+        ),
         GestureDetector(
-          child: const AuthenticationLabel("Alumnos"),
+          child: GenericLabel("Alumnos", 15.0),
           onTap: selectStudents,
         ),
         GestureDetector(
-          child: const AuthenticationLabel("Horarios"),
+          child: GenericLabel("Horarios", 15.0),
           onTap: selectStudents,
         ),
         Row(
           children: [
-            const AuthenticationLabel("Calificacion basada en"),
+            GenericLabel("Calificacion basada en", 15.0),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: ToggleButtons(
