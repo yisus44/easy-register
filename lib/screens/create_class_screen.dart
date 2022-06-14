@@ -12,7 +12,7 @@ class CreateClassScreen extends StatefulWidget {
 }
 
 class _CreateClassScreenState extends State<CreateClassScreen> {
-  final List<bool> _selections = List.generate(2, (_) => false);
+  final List<bool> _selections = [true, false];
 
   final List<String> groups = ["6D", "3F", "Private"];
   String selectedGroup = "6D";

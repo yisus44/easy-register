@@ -6,6 +6,7 @@ class GenericField extends StatelessWidget {
   final double customFontSize;
   final TextEditingController? controller;
   final TextInputType? inputType;
+  final TextInputAction? inputAction;
   Function? onChange;
 
   GenericField(
@@ -15,6 +16,7 @@ class GenericField extends StatelessWidget {
       this.onChange,
       this.controller,
       this.customFontSize = 25,
+      this.inputAction,
       this.inputType})
       : super(key: key);
 
@@ -45,6 +47,7 @@ class GenericField extends StatelessWidget {
               controller: controller,
               obscureText: typeText,
               keyboardType: inputType,
+              textInputAction: inputAction,
               decoration: InputDecoration(
                 fillColor:
                     const Color.fromARGB(255, 209, 213, 216).withOpacity(0.5),

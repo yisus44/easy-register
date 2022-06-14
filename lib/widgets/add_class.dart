@@ -43,6 +43,7 @@ class _AddClassState extends State<AddClass> {
             typeText: true,
             titleText: 'Valor de la rubrica',
             inputType: TextInputType.number,
+            inputAction: TextInputAction.go,
             customFontSize: 20,
             onChange: null),
         GenericButton(
