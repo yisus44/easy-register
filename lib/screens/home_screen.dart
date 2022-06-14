@@ -15,17 +15,17 @@ class HomeScreen extends StatelessWidget {
         children: [
           CardSlider(
             carouselName: 'Clases',
-            cardsCount: 10,
+            cardsCount: cards.length,
             cardPayload: cards,
           ),
           CardSlider(
             carouselName: 'Presentaciones easer',
-            cardsCount: 10,
+            cardsCount: cards.length,
             cardPayload: cards,
           ),
           CardSlider(
             carouselName: 'Material',
-            cardsCount: 10,
+            cardsCount: cards.length,
             cardPayload: cards,
           ),
           ElevatedButton(

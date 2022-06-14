@@ -112,7 +112,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         const GenericLabel("Encuadre de asignaciones", 15),
         CardSlider(
           carouselName: "Rubros",
-          cardsCount: 1,
+          cardsCount: cards.length,
           cardPayload: cards,
           onLast: () {
             showModalBottomSheet(
@@ -180,7 +180,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         const AuthenticationLabel("Encuadre de asignaciones"),
         CardSlider(
           carouselName: "Rubros",
-          cardsCount: 2,
+          cardsCount: cards.length,
           cardPayload: cards,
         ),
         Row(
