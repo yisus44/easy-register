@@ -8,6 +8,7 @@ class GenericField extends StatelessWidget {
   final TextInputType? inputType;
   final TextInputAction? inputAction;
   Function? onChange;
+  Function? onSubmited;
 
   GenericField(
       {Key? key,
@@ -17,6 +18,7 @@ class GenericField extends StatelessWidget {
       this.controller,
       this.customFontSize = 25,
       this.inputAction,
+      this.onSubmited,
       this.inputType})
       : super(key: key);
 
@@ -45,9 +47,13 @@ class GenericField extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: controller,
-              obscureText: typeText,
               keyboardType: inputType,
               textInputAction: inputAction,
+              onSubmitted: (_) {
+                if (onSubmited != null) {
+                  onSubmited!();
+                }
+              },
               decoration: InputDecoration(
                 fillColor:
                     const Color.fromARGB(255, 209, 213, 216).withOpacity(0.5),

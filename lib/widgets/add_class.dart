@@ -1,4 +1,5 @@
 import 'package:easy_register/widgets/generic_button.dart';
+import 'package:easy_register/widgets/utils/Modal.dart';
 import 'package:flutter/material.dart';
 
 import 'genericField.dart';
@@ -15,17 +16,37 @@ class _AddClassState extends State<AddClass> {
   final _nameController = TextEditingController();
   final _amountController = TextEditingController();
 
-  void _submitData() {
-    final enteredTitle = _nameController.text;
-    final enteredAmount = double.parse(_amountController.text);
+  String enteredTitle = "";
+  double enteredAmount = 0;
 
-    if (enteredTitle.isEmpty || enteredAmount < 0) {
-      return;
+  void _submitData() {
+    widget._addNewAsignation(enteredTitle, enteredAmount.toString());
+    Navigator.of(context).pop();
+  }
+
+  bool isValidForm() {
+    final enteredTitle = _nameController.text;
+    final enteredAmount = _amountController.text != ""
+        ? double.parse(_amountController.text)
+        : 0.0;
+    if (enteredTitle.isEmpty || enteredAmount < 0 || enteredAmount > 100) {
+      return false;
     }
 
-    widget._addNewAsignation(enteredTitle, enteredAmount.toString());
+    setState(() {
+      this.enteredTitle = enteredTitle;
+      this.enteredAmount = enteredAmount;
+    });
+    return true;
+  }
 
-    Navigator.of(context).pop();
+  void onSubmit() {
+    if (isValidForm()) {
+      _submitData();
+    } else {
+      Modal.showModalDialog(
+          "Invalid information", "Review information.", context);
+    }
   }
 
   @override
@@ -43,13 +64,11 @@ class _AddClassState extends State<AddClass> {
             typeText: true,
             titleText: 'Valor de la rubrica',
             inputType: TextInputType.number,
-            inputAction: TextInputAction.go,
+            inputAction: TextInputAction.send,
             customFontSize: 20,
+            onSubmited: onSubmit,
             onChange: null),
-        GenericButton(
-          buttonText: "Agregar",
-          onClick: _submitData,
-        )
+        GenericButton(buttonText: "Agregar", onClick: onSubmit)
       ],
     );
   }

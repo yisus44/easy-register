@@ -15,7 +15,7 @@ class CreateClassScreen extends StatefulWidget {
 
 class _CreateClassScreenState extends State<CreateClassScreen> {
   final List<bool> _selections = [true, false];
-
+  bool isTenPercent = true;
   final List<String> groups = ["6D", "3F", "Private"];
   String selectedGroup = "6D";
   final List<CardPayload> cards = [const CardPayload("Agregar rubro", "+")];
@@ -46,97 +46,95 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
   void _addNewAsignation(String title, String description) {
     final newCard = CardPayload(title, description);
     setState(() {
-      cards.add(newCard);
+      cards.insert(0, newCard);
     });
   }
 
   Widget _buildPortraitMode() {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          GenericField(
-            typeText: false,
-            titleText: 'Nombre de la clase',
-            customFontSize: 20,
-            onChange: getClassName,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 15),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.3),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const GenericLabel("Seleccionar grupo", 20),
-                  DropdownButton(
+        child: Column(
+      children: [
+        GenericField(
+          typeText: false,
+          titleText: 'Nombre de la clase',
+          customFontSize: 20,
+          onChange: getClassName,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 15),
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.3),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const GenericLabel("Seleccionar grupo", 20),
+                DropdownButton(
                     items: groups.map(
                       (val) {
                         return DropdownMenuItem<String>(
                           value: val,
-                          child: Text(
-                            val,
-                            style:const TextStyle(color: Colors.black, fontSize: 15)
-                          ),
+                          child: Text(val,
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 15)),
                         );
                       },
                     ).toList(),
-                    onChanged: getGroup
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 25),
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            child: GestureDetector(
-              child: const GenericLabel("Horarios", 20),
-              onTap: selectStudents,
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const GenericLabel("Calificacion basada en", 20),
-                ToggleButtons(
-                    children: const <Widget>[Text("10%"),
-                    Text("100%")],
-                    isSelected: _selections,
-                    onPressed: (int index) {
-                      setState(() {
-                        if (index == 0) {
-                          _selections[index] = !_selections[index];
-                          _selections[index + 1] = !_selections[index];
-                        } else {
-                          _selections[index] = !_selections[index];
-                          _selections[index - 1] = !_selections[index];
-                        }
-                      });
-                    },
-                  ),
+                    onChanged: getGroup),
               ],
             ),
           ),
-          const GenericLabel("Encuadre de asignaciones", 15),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            margin: const EdgeInsets.symmetric(vertical: 10),
-            child: CardSlider(
-              carouselName: "Rubros",
-              cardsCount: cards.length,
-              cardPayload: cards,
-              onLast: () {
-                showModalBottomSheet(
+        ),
+        // Container(
+        //   width: double.infinity,
+        //   margin: const EdgeInsets.symmetric(horizontal: 25),
+        //   padding: const EdgeInsets.symmetric(vertical: 5),
+        //   decoration: BoxDecoration(
+        //     color: Colors.grey.withOpacity(0.3),
+        //   ),
+        //   // child: GestureDetector(
+        //   //   child: const GenericLabel("Horarios", 20),
+        //   //   onTap: selectStudents,
+        //   // ),
+        // ),
+        Container(
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const GenericLabel("Calificacion basada en", 20),
+              ToggleButtons(
+                children: const <Widget>[Text("10%"), Text("100%")],
+                isSelected: _selections,
+                onPressed: (int index) {
+                  setState(() {
+                    if (index == 0) {
+                      _selections[index] = !_selections[index];
+                      _selections[index + 1] = !_selections[index];
+                    } else {
+                      _selections[index] = !_selections[index];
+                      _selections[index - 1] = !_selections[index];
+                    }
+                    isTenPercent = !isTenPercent;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+        const GenericLabel("Encuadre de asignaciones", 15),
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          child: CardSlider(
+            carouselName: "Rubros",
+            cardsCount: cards.length,
+            cardPayload: cards,
+            onLast: () {
+              showModalBottomSheet(
                   context: context,
                   builder: (_) {
                     return GestureDetector(
@@ -145,18 +143,18 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       behavior: HitTestBehavior.opaque,
                     );
                   });
-                },
-            ),
+            },
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              GenericButton(buttonText: "Crear"),
-              GenericButton(buttonText: "Cancelar")
-            ],
-          )
-        ],
-      ));
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            GenericButton(buttonText: "Crear"),
+            GenericButton(buttonText: "Cancelar")
+          ],
+        )
+      ],
+    ));
   }
 
   Widget _buildLandscapeContent() {
@@ -219,18 +217,16 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        "assets/logo_small_transparent.png", "Crear clase"
-      ),
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return Center(
-            child: orientation == Orientation.portrait
-              ? _buildPortraitMode()
-              : _buildLandscapeContent(),
-          );
-        },
-      )
-    );
+        appBar: const CustomAppBar(
+            "assets/logo_small_transparent.png", "Crear clase"),
+        body: OrientationBuilder(
+          builder: (context, orientation) {
+            return Center(
+              child: orientation == Orientation.portrait
+                  ? _buildPortraitMode()
+                  : _buildLandscapeContent(),
+            );
+          },
+        ));
   }
 }
