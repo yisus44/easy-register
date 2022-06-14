@@ -38,10 +38,10 @@ class CardSlider extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.3),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.all(5),
                 child: Text('${carouselName}',
                     style:
-                        const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               ),
             ),
           ),
@@ -97,7 +97,7 @@ class _CardPoster extends StatelessWidget {
                     cardTitle,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                       ),
@@ -110,7 +110,7 @@ class _CardPoster extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),

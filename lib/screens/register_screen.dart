@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         body: Column(
           children: [
-            LogoCompleto(),
+            const LogoCompleto(heightSize: 230),
 
             //campos
             const AuthenticationFields(typeText: false, titleText: 'Nombre'),
