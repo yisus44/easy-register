@@ -4,6 +4,8 @@ class GenericField extends StatelessWidget {
   final bool typeText;
   final String titleText;
   final double customFontSize;
+  final TextEditingController? controller;
+  final TextInputType? inputType;
   Function? onChange;
 
   GenericField(
@@ -11,7 +13,9 @@ class GenericField extends StatelessWidget {
       required this.typeText,
       required this.titleText,
       this.onChange,
-      this.customFontSize = 25})
+      this.controller,
+      this.customFontSize = 25,
+      this.inputType})
       : super(key: key);
 
   @override
@@ -38,13 +42,19 @@ class GenericField extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: controller,
               obscureText: typeText,
+              keyboardType: inputType,
               decoration: InputDecoration(
                 fillColor:
                     const Color.fromARGB(255, 209, 213, 216).withOpacity(0.5),
                 filled: true,
               ),
-              onChanged: (_) => {onChange!(_)},
+              onChanged: (_) {
+                if (onChange != null) {
+                  onChange!(_);
+                }
+              },
             ),
           ),
         )

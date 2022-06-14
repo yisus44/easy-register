@@ -66,7 +66,9 @@ class _CardPoster extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: InkWell(
-        onTap: () => {onTap!()},
+        onTap: () => {
+          if (onTap != null) {onTap!()}
+        },
         child: Container(
           width: 130,
           height: 190,

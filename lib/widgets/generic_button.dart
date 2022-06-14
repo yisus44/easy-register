@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class GenericButton extends StatelessWidget {
   final String buttonText;
-
-  const GenericButton({Key? key, required this.buttonText}) : super(key: key);
+  final Function? onClick;
+  const GenericButton({Key? key, required this.buttonText, this.onClick})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,11 @@ class GenericButton extends StatelessWidget {
         margin: const EdgeInsets.all(10),
         child: ElevatedButton(
           child: Text(buttonText),
-          onPressed: () {},
+          onPressed: () {
+            if (onClick != null) {
+              onClick!();
+            }
+          },
           style: ElevatedButton.styleFrom(
             primary: const Color.fromARGB(255, 11, 111, 134),
             onPrimary: Colors.white, // foreground (text) color

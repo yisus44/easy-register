@@ -33,11 +33,22 @@ class _AddClassState extends State<AddClass> {
     return Column(
       children: [
         GenericField(
+            controller: _nameController,
             typeText: true,
-            titleText: 'Nombre del alumno',
+            titleText: 'Nombre de la rubrica',
             customFontSize: 20,
-            onChange: _submitData),
-        GenericButton(buttonText: "Agregar")
+            onChange: null),
+        GenericField(
+            controller: _amountController,
+            typeText: true,
+            titleText: 'Valor de la rubrica',
+            inputType: TextInputType.number,
+            customFontSize: 20,
+            onChange: null),
+        GenericButton(
+          buttonText: "Agregar",
+          onClick: _submitData,
+        )
       ],
     );
   }

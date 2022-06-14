@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ClassScreen extends StatelessWidget {
   final List<CardPayload> cards = [CardPayload("Descripcion", "hola")];
+
   var size, height, width;
   @override
   Widget build(BuildContext context) {
