@@ -12,6 +12,7 @@ class AppTheme{
       color: primary,
       elevation: 0
     ),
+    
 
   );
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
@@ -24,5 +25,4 @@ class AppTheme{
     ),
 
   );
-
 }

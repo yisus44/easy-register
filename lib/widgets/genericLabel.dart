@@ -8,15 +8,17 @@ class GenericLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Text(
-        '${titleText}',
-        style: TextStyle(
-            color: Colors.black,
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold),
-      ),
-    );
+    return
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.all(5),
+        child: Text(
+          '${titleText}',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold),
+        ),
+      );
   }
 }
