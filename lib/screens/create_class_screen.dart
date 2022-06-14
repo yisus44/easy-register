@@ -57,7 +57,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         GenericField(
           typeText: false,
           titleText: 'Nombre de la clase',
-          customFontSize: 20,
+          customFontSize: 15,
           onChange: getClassName,
         ),
         Padding(
@@ -70,7 +70,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const GenericLabel("Seleccionar grupo", 20),
+                const GenericLabel("Seleccionar grupo", 15),
                 DropdownButton(
                     items: groups.map(
                       (val) {
@@ -87,25 +87,25 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             ),
           ),
         ),
-        // Container(
-        //   width: double.infinity,
-        //   margin: const EdgeInsets.symmetric(horizontal: 25),
-        //   padding: const EdgeInsets.symmetric(vertical: 5),
-        //   decoration: BoxDecoration(
-        //     color: Colors.grey.withOpacity(0.3),
-        //   ),
-        //   // child: GestureDetector(
-        //   //   child: const GenericLabel("Horarios", 20),
-        //   //   onTap: selectStudents,
-        //   // ),
-        // ),
+        Container(
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 25),
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.grey.withOpacity(0.3),
+          ),
+          child: GestureDetector(
+            child: const GenericLabel("Horarios", 15),
+            onTap: selectStudents,
+          ),
+        ),
         Container(
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const GenericLabel("Calificacion basada en", 20),
+              const GenericLabel("Calificacion basada en", 15),
               ToggleButtons(
                 children: const <Widget>[Text("10%"), Text("100%")],
                 isSelected: _selections,
@@ -118,7 +118,6 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       _selections[index] = !_selections[index];
                       _selections[index - 1] = !_selections[index];
                     }
-                    isTenPercent = !isTenPercent;
                   });
                 },
               ),
@@ -127,8 +126,9 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         ),
         const GenericLabel("Encuadre de asignaciones", 15),
         Container(
+          decoration: BoxDecoration(color: Colors.grey.withOpacity(0.3)),
           padding: const EdgeInsets.symmetric(vertical: 10),
-          margin: const EdgeInsets.symmetric(vertical: 10),
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
           child: CardSlider(
             carouselName: "Rubros",
             cardsCount: cards.length,
@@ -146,12 +146,15 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             },
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            GenericButton(buttonText: "Crear"),
-            GenericButton(buttonText: "Cancelar")
-          ],
+        Container(
+          margin: const EdgeInsets.only(right: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const [
+              GenericButton(buttonText: "Crear"),
+              GenericButton(buttonText: "Cancelar")
+            ],
+          ),
         )
       ],
     ));
@@ -162,7 +165,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         child: Column(
       children: [
         GenericField(
-          typeText: true,
+          typeText: false,
           titleText: 'Nombre de la clase',
           customFontSize: 15,
         ),
@@ -204,7 +207,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           cardPayload: cards,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             AuthenticationButton(buttonText: "Crear"),
             AuthenticationButton(buttonText: "Cancelar")

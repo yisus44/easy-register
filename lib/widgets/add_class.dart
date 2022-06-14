@@ -1,5 +1,6 @@
 import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/utils/Modal.dart';
+import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'genericField.dart';
@@ -51,25 +52,34 @@ class _AddClassState extends State<AddClass> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GenericField(
-            controller: _nameController,
-            typeText: true,
-            titleText: 'Nombre de la rubrica',
-            customFontSize: 20,
-            onChange: null),
-        GenericField(
-            controller: _amountController,
-            typeText: true,
-            titleText: 'Valor de la rubrica',
-            inputType: TextInputType.number,
-            inputAction: TextInputAction.send,
-            customFontSize: 20,
-            onSubmited: onSubmit,
-            onChange: null),
-        GenericButton(buttonText: "Agregar", onClick: onSubmit)
-      ],
+    return Container(
+      margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const LogoCompleto(heightSize: 130),
+          GenericField(
+              controller: _nameController,
+              typeText: true,
+              titleText: 'Nombre de la rubrica',
+              customFontSize: 15,
+              onChange: null),
+          GenericField(
+              controller: _amountController,
+              typeText: true,
+              titleText: 'Valor de la rubrica',
+              inputType: TextInputType.number,
+              inputAction: TextInputAction.go,
+              customFontSize: 15,
+              onSubmited: onSubmit,
+              onChange: null),
+          GenericButton(
+            buttonText: "Agregar",
+            onClick: onSubmit,
+          ),
+        ],
+      ),
     );
   }
 }

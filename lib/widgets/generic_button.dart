@@ -19,7 +19,8 @@ class GenericButton extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             primary: const Color.fromARGB(255, 11, 111, 134),
-            onPrimary: Colors.white, // foreground (text) color
+            onPrimary: Colors.white,
+            minimumSize: const Size(100, 50) // foreground (text) color
           ),
         ));
   }

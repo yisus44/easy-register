@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
-          LogoCompleto(),
+          const LogoCompleto(heightSize: 230),
           const AuthenticationFields(titleText: 'Nombre',typeText: false),
           const AuthenticationFields(titleText: 'Contraseña',typeText: true),
 
