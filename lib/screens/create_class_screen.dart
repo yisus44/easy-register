@@ -2,6 +2,7 @@ import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/add_class.dart';
 import '../widgets/genericField.dart';
 import '../widgets/genericLabel.dart';
 
@@ -11,23 +12,74 @@ class CreateClassScreen extends StatefulWidget {
 }
 
 class _CreateClassScreenState extends State<CreateClassScreen> {
-  List<bool> _selections = List.generate(2, (_) => false);
-  final List<CardPayload> cards = [CardPayload("Descripcion", "hola")];
+  final List<bool> _selections = List.generate(2, (_) => false);
+
+  final List<String> groups = ["6D", "3F", "Private"];
+  String selectedGroup = "6D";
+  final List<CardPayload> cards = [CardPayload("Agregar rubro", "+")];
+
+  String className = "";
+  List<String> students = [];
+
+  void getClassName(String newClassName) {
+    setState(() {
+      className = newClassName;
+    });
+  }
+
+  void getGroup(dynamic val) {
+    setState(
+      () {
+        if (val != null) {
+          className = val.toString();
+        }
+      },
+    );
+  }
+
   void selectStudents() {}
 
   void selectHours() {}
+
+  void _addNewAsignation(String title, String description) {
+    final newCard = CardPayload(title, description);
+    setState(() {
+      cards.add(newCard);
+    });
+  }
 
   Widget _buildPortraitMode() {
     return SingleChildScrollView(
         child: Column(
       children: [
-        const GenericField(
-            typeText: true,
-            titleText: 'Nombre de la clase',
-            customFontSize: 20),
-        GestureDetector(
-          child: const GenericLabel("Alumnos", 15),
-          onTap: selectStudents,
+        GenericField(
+          typeText: true,
+          titleText: 'Nombre de la clase',
+          customFontSize: 20,
+          onChange: getClassName,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Row(
+            children: [
+              const GenericLabel("Seleccionar grupo", 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: DropdownButton(
+                    items: groups.map(
+                      (val) {
+                        return DropdownMenuItem<String>(
+                          value: val,
+                          child: Text(val,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 15)),
+                        );
+                      },
+                    ).toList(),
+                    onChanged: getGroup),
+              )
+            ],
+          ),
         ),
         GestureDetector(
           child: const GenericLabel("Horarios", 15),
@@ -62,6 +114,17 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           carouselName: "Rubros",
           cardsCount: 1,
           cardPayload: cards,
+          onLast: () {
+            showModalBottomSheet(
+                context: context,
+                builder: (_) {
+                  return GestureDetector(
+                    child: AddClass(_addNewAsignation),
+                    onTap: () {},
+                    behavior: HitTestBehavior.opaque,
+                  );
+                });
+          },
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -78,22 +141,22 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     return SingleChildScrollView(
         child: Column(
       children: [
-        const GenericField(
+        GenericField(
           typeText: true,
           titleText: 'Nombre de la clase',
           customFontSize: 15,
         ),
         GestureDetector(
-          child: GenericLabel("Alumnos", 15.0),
+          child: const GenericLabel("Alumnos", 15.0),
           onTap: selectStudents,
         ),
         GestureDetector(
-          child: GenericLabel("Horarios", 15.0),
+          child: const GenericLabel("Horarios", 15.0),
           onTap: selectStudents,
         ),
         Row(
           children: [
-            GenericLabel("Calificacion basada en", 15.0),
+            const GenericLabel("Calificacion basada en", 15.0),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: ToggleButtons(

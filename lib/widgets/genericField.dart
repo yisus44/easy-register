@@ -4,11 +4,13 @@ class GenericField extends StatelessWidget {
   final bool typeText;
   final String titleText;
   final double customFontSize;
+  Function? onChange;
 
-  const GenericField(
+  GenericField(
       {Key? key,
       required this.typeText,
       required this.titleText,
+      this.onChange,
       this.customFontSize = 25})
       : super(key: key);
 
@@ -42,6 +44,7 @@ class GenericField extends StatelessWidget {
                     const Color.fromARGB(255, 209, 213, 216).withOpacity(0.5),
                 filled: true,
               ),
+              onChanged: (_) => {onChange!(_)},
             ),
           ),
         )

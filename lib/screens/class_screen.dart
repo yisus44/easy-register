@@ -23,7 +23,7 @@ class ClassScreen extends StatelessWidget {
             TextIcon(),
             CardSlider(
               carouselName: 'Clases',
-              cardsCount: 2,
+              cardsCount: cards.length,
               cardPayload: cards,
             )
           ],

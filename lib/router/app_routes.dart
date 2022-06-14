@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
 class AppRoutes {
-  static const initialRoute = 'createClass';
+  static const initialRoute = 'home';
 
   static Map<String, Widget Function(BuildContext)> routes = {
-    'login'      : ( _ ) => LoginScreen(),
-    'register'   : ( _ ) => RegisterScreen(),
-    'class'      : ( _ ) => ClassScreen(),
-    'home'       : ( _ ) => HomeScreen(),
-    'createClass': ( _ ) => CreateClassScreen(),
-    'student'    : ( _ ) => StudentScreen(),
+    'login': (_) => LoginScreen(),
+    'register': (_) => RegisterScreen(),
+    'class': (_) => ClassScreen(),
+    'home': (_) => HomeScreen(),
+    'createClass': (_) => CreateClassScreen(),
+    'student': (_) => StudentScreen(),
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
