@@ -11,8 +11,9 @@ class AppRoutes {
     'home'       : (_) => HomeScreen(1),
     'createClass': (_) => const CreateClassScreen(teacherId: 1),
     'student'    : (_) => StudentScreen(),
-    'material'   : (_) => const MaterialScreen(countColumn: 1,),
-    'grades'     : (_) => const GradesScreen()
+    'grades'     : (_) => const GradesScreen(),
+    'material'   : (_)=> const MaterialScreen(countColumn: 1,),
+    'test': (_) => TestScreen()
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

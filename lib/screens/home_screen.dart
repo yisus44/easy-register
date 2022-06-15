@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar("assets/logo_small_transparent.png",
-          "Bienvenido fulanito", "Configuración", "Salir"),
+      appBar: const CustomAppBar(
+          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir"),
       body: SingleChildScrollView(
           child: Column(
         children: [
