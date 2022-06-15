@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
 class AppRoutes {
-  static const initialRoute = 'grades';
+  static const initialRoute = 'login';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'login': (_) => LoginScreen(),

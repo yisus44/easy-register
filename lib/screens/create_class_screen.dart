@@ -1,7 +1,7 @@
-
 import 'package:easy_register/core/models/common/evaluation.dart';
 import 'package:easy_register/core/models/common/student.dart';
 import 'package:easy_register/core/services/classes/class_service.dart';
+import 'package:easy_register/screens/home_screen.dart';
 import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/utils/Modal.dart';
 import 'package:easy_register/widgets/widgets.dart';
@@ -119,7 +119,8 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     final response = await classService.createClass(
         name, teacherId, evaluations, base, formStudents);
     if (response.data) {
-      Navigator.pushNamed(context, '/home');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => HomeScreen(teacherId)));
     }
   }
 
@@ -296,8 +297,8 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppBar(
-            "assets/logo_small_transparent.png", "Crear clase","Configuración","Salir"),
+        appBar: const CustomAppBar("assets/logo_small_transparent.png",
+            "Crear clase", "Configuración", "Salir"),
         body: OrientationBuilder(
           builder: (context, orientation) {
             return Center(

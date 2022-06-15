@@ -32,10 +32,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void onSubmit() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen(1)),
-    );
     if (email == "") {
       Modal.showModalDialog(
           "Invalid information", "email should not be empty", context);
