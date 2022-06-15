@@ -9,8 +9,9 @@ import 'create_class_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final int teacherId;
+  String? teacherName;
 
-  HomeScreen(this.teacherId, {Key? key}) : super(key: key);
+  HomeScreen(this.teacherId, {this.teacherName, Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -44,8 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir"),
+      appBar: CustomAppBar(
+          "assets/logo_small_transparent.png",
+          "Bienvenido ${widget.teacherName ?? "fulanito"}",
+          "Configuración",
+          "Salir"),
       body: SingleChildScrollView(
           child: Column(
         children: [
