@@ -1,9 +1,11 @@
+import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import '../core/services/classes/class_service.dart';
 
 import 'package:flutter/material.dart';
 
 import '../widgets/utils/Modal.dart';
+import 'create_class_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final int teacherId;
@@ -62,6 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
             cardsCount: cards.length,
             cardPayload: cards,
           ),
+          GenericButton(
+            buttonText: "Ir a agregar clase",
+            onClick: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          CreateClassScreen(teacherId: widget.teacherId)))
+            },
+          )
         ],
       )),
     );
