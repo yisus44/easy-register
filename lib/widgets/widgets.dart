@@ -1,3 +1,5 @@
+export 'package:easy_register/widgets/grade_table.dart';
+
 export 'package:easy_register/widgets/student_image.dart';
 export 'package:easy_register/widgets/authenticationButton.dart';
 export 'package:easy_register/widgets/authenticationFields.dart';
