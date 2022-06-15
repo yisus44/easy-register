@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
 class AppRoutes {
-  static const initialRoute = 'login';
+  static const initialRoute = 'register';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'login': (_) => LoginScreen(),
     'register': (_) => RegisterScreen(),
     'class': (_) => ClassScreen(),
-    'home': (_) => HomeScreen(),
+    'home': (_) => HomeScreen(1),
     'createClass': (_) => CreateClassScreen(
           teacherId: 1,
         ),

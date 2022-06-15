@@ -14,8 +14,8 @@ class ClassService {
 
   //Function to get all classes
   //NEED: Test it out
-  Future<ResponseDto<List<Class>>> getAllClasses() async {
-    final String url = "$baseUrl/classes";
+  Future<ResponseDto<List<Class>>> getAllClasses(int teacherId) async {
+    final String url = "$baseUrl/teachers/$teacherId/classes";
 
     int statusCode = 500;
     try {
