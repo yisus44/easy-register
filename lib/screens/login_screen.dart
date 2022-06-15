@@ -1,3 +1,4 @@
+import 'package:easy_register/screens/home_screen.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -46,12 +47,9 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    Navigator.pushNamed(
+    Navigator.push(
       context,
-      '/home',
-      arguments: <String, int>{
-        'teacherId': response.data.id,
-      },
+      MaterialPageRoute(builder: (context) => HomeScreen(response.data.id)),
     );
   }
 

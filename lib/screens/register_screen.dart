@@ -1,7 +1,9 @@
+import 'package:easy_register/screens/screens.dart';
 import 'package:flutter/material.dart';
 import '../core/services/auth/auth_service.dart';
 import '../widgets/utils/Modal.dart';
 import '../widgets/widgets.dart';
+import 'home_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -30,6 +32,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void onSubmit() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen(1)),
+    );
     if (email == "") {
       Modal.showModalDialog(
           "Invalid information", "email should not be empty", context);
@@ -60,12 +66,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return;
     }
 
-    Navigator.pushNamed(
+    Navigator.push(
       context,
-      '/home',
-      arguments: <String, int>{
-        'teacherId': response.data.id,
-      },
+      MaterialPageRoute(builder: (context) => HomeScreen(response.data.id)),
     );
   }
 
@@ -136,7 +139,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AuthenticationButton(buttonText: 'Ingresar'),
+                AuthenticationButton(
+                  buttonText: 'Ingresar',
+                  onClick: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                  },
+                ),
                 AuthenticationButton(
                   buttonText: 'Registrarse',
                   onClick: onSubmit,

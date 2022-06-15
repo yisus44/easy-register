@@ -1,3 +1,4 @@
+import 'package:easy_register/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 //generic app bar which takes one argument() the widget that will be in the right)
@@ -17,11 +18,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void goToZzzz()
+    {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => TestScreen()),);
+    }
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          margin: const EdgeInsets.only(bottom: 15),
+          margin: const EdgeInsets.only(bottom: 0),
           child:AppBar(
             title: Text(
               message,
@@ -39,17 +46,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Image.asset(imgUrl, width: 110, height: 100),
             ),
             actions: <Widget>[
-              PopupMenuButton<String>(
-                onSelected: null,
-                itemBuilder: (BuildContext context) {
-                  return {'${optMenu1}', '${optMenu2}'}.map((String choice) {
-                    return PopupMenuItem<String>(
-                      value: choice,
-                      child: Text(choice),
-                    );
-                  }).toList();
-                }
-              ),
+              Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 43,
+                          padding: const EdgeInsets.all(0),
+                          child: ElevatedButton(onPressed: () => goToZzzz(), child: const Text(":)", style: TextStyle(fontSize: 13),))),
+
+                        PopupMenuButton<String>(
+                          onSelected: null,
+                          itemBuilder: (BuildContext context) {
+                            return {'${optMenu1}', '${optMenu2}'}.map((String choice) {
+                              return PopupMenuItem<String>(
+                                value: choice,
+                                child: Text(choice),
+                              );
+                            }).toList();
+                          }
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
             ],
           )
         ),
