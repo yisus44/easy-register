@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir"),
+          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir", "Más componentes"),
       body: SingleChildScrollView(
           child: Column(
         children: [

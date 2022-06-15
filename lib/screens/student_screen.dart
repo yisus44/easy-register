@@ -7,7 +7,7 @@ class StudentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-          "assets/logo_small_transparent.png", "Alumnos","Configuración","Salir"),
+          "assets/logo_small_transparent.png", "Alumnos","Configuración","Salir", "Más componentes"),
       body: Column(
         children: [
           Row(

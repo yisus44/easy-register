@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const CustomAppBar("assets/logo_small_transparent.png", "",
-              "Configuración", "Salir"),
+              "Configuración", "Salir", "Más componentes"),
           elevation: 0,
         ),
         body: Column(

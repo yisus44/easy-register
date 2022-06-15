@@ -298,7 +298,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const CustomAppBar(
-            "assets/logo_small_transparent.png", "Crear clase","Configuración","Salir"),
+            "assets/logo_small_transparent.png", "Crear clase","Configuración","Salir","Más componentes"),
         body: OrientationBuilder(
           builder: (context, orientation) {
             return Center(
