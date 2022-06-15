@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  void getUsenamer(String val) {
+  void getEmail(String val) {
     setState(() {
       email = val;
     });
@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     const AuthService service =
         AuthService("https://gentle-mountain-69254.herokuapp.com/api/v1");
-
+    name = "nuevo maestro";
     final response = await service.register(
         name, email, password, birthDay, birthMonth, birthYear);
 
@@ -107,9 +107,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
             //campos
             AuthenticationFields(
-                typeText: false,
-                titleText: 'Email',
-                inputType: TextInputType.emailAddress),
+              typeText: false,
+              titleText: 'Email',
+              inputType: TextInputType.emailAddress,
+              onChange: getEmail,
+            ),
             // const AuthenticationFields(typeText: false, titleText: ''),
             Container(
               decoration: BoxDecoration(border: Border.all()),
@@ -124,6 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             AuthenticationFields(
               typeText: true,
               titleText: 'Contraseña',
+              onChange: getPassword,
             ),
             AuthenticationFields(
                 typeText: true,
@@ -133,7 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AuthenticationButton(buttonText: 'Ingresar', onClick: onSubmit),
+                AuthenticationButton(buttonText: 'Ingresar'),
                 AuthenticationButton(
                   buttonText: 'Registrarse',
                   onClick: onSubmit,

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 
 import 'package:easy_register/core/models/auth/requests/login_request.dart';
@@ -51,8 +53,8 @@ class AuthService {
     String email,
     String password,
   ) async {
-    final String url = "$baseUrl/auth/register";
-    final String body = LoginRequest(email, password).serialize();
+    final String url = "$baseUrl/auth/login";
+    final String body = LoginRequest(password, email).serialize();
     int statusCode = 500;
     try {
       Response response = await Dio().post(url, data: body);

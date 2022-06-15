@@ -69,13 +69,13 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               const LogoCompleto(heightSize: 230),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AuthenticationFields(titleText: 'Nombre', typeText: false),
-                  AuthenticationFields(titleText: 'Contraseña', typeText: true),
-                ],
-              ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     AuthenticationFields(titleText: 'Nombre', typeText: false),
+              //     AuthenticationFields(titleText: 'Contraseña', typeText: true),
+              //   ],
+              // ),
               Container(
                 margin: const EdgeInsets.all(50),
                 child: Column(

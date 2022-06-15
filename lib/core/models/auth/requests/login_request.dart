@@ -1,17 +1,17 @@
 import 'dart:convert';
 
 class LoginRequest {
-  final String name;
+  final String password;
   final String email;
 
   String serialize() {
     final body = jsonEncode({
-      "name": name,
+      "password": password,
       "email": email,
     });
 
     return body;
   }
 
-  const LoginRequest(this.name, this.email);
+  const LoginRequest(this.password, this.email);
 }
