@@ -6,14 +6,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String imgUrl;
   final String message;
   final List<Widget>? actions;
-  final String optMenu1, optMenu2, optMenu3;
+  final String optMenu1, optMenu2;
 
   const CustomAppBar(
     this.imgUrl,
     this.message,
     this.optMenu1,
     this.optMenu2,
-    this.optMenu3,
     {Key? key, this.actions
     }): super(key: key);
 
@@ -59,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         PopupMenuButton<String>(
                           onSelected: null,
                           itemBuilder: (BuildContext context) {
-                            return {'${optMenu1}', '${optMenu2}', '${optMenu3}'}.map((String choice) {
+                            return {'${optMenu1}', '${optMenu2}'}.map((String choice) {
                               return PopupMenuItem<String>(
                                 value: choice,
                                 child: Text(choice),

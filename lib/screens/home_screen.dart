@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir", "Más componentes"),
+          "assets/logo_small_transparent.png", "Bienvenido fulanito","Configuración","Salir"),
       body: SingleChildScrollView(
           child: Column(
         children: [

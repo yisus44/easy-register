@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const CustomAppBar("assets/logo_small_transparent.png", "",
-              "Registrarse", "Configuración", "Más componentes"),
+              "Registrarse", "Configuración"),
           elevation: 0,
         ),
         body: SingleChildScrollView(

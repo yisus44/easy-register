@@ -14,7 +14,7 @@ class TestScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: const CustomAppBar("assets/logo_small_transparent.png",
-            "Alumnos", "Configuración", "Salir", "Más componentes"),
+            "Alumnos", "Configuración", "Salir"),
         body: SingleChildScrollView(
           child: Column(children: [
         
