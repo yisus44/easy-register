@@ -8,8 +8,6 @@ class StudentCheckbox extends StatefulWidget {
      required this.nameItemList
      }) : super(key: key);
 
-
-
   @override
   State<StudentCheckbox> createState() => _StudentCheckboxState(nameItemList);
 
@@ -19,7 +17,6 @@ class _StudentCheckboxState extends State<StudentCheckbox> {
 
   bool _checkValue = false;
   String nameItem='';
-
 
   _StudentCheckboxState(String nameItem){
     
@@ -48,8 +45,6 @@ class _StudentCheckboxState extends State<StudentCheckbox> {
               }),
             ),
           ),
-
-
       ],
     );
   }

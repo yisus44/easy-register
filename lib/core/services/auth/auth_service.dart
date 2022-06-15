@@ -25,7 +25,7 @@ class AuthService {
   ) async {
     final String url = "$baseUrl/auth/register";
     final String body =
-        RegisterRequest(name, password, email, birthDay, birthMonth, birthYear)
+        RegisterRequest(name, email, password, birthDay, birthMonth, birthYear)
             .serialize();
     int statusCode = 500;
     try {

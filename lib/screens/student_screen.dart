@@ -27,6 +27,7 @@ class StudentScreen extends StatelessWidget {
             
           ),
               const StudentCheckbox(nameItemList: 'Alumno 1'),
+              
               const StudentCheckbox(nameItemList: 'Alumno 2'),
               const StudentCheckbox(nameItemList: 'Alumno 3')
 
