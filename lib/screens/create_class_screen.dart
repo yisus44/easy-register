@@ -48,10 +48,6 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     );
   }
 
-  void selectStudents() {}
-
-  void selectHours() {}
-
   void _addNewAsignation(String title, String description) {
     final newCard = CardPayload(title, description);
     setState(() {
@@ -165,18 +161,18 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             ),
           ),
         ),
-        Container(
-          width: double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 25),
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.3),
-          ),
-          child: GestureDetector(
-            child: const GenericLabel("Horarios", 15),
-            onTap: selectStudents,
-          ),
-        ),
+        // Container(
+        //   width: double.infinity,
+        //   margin: const EdgeInsets.symmetric(horizontal: 25),
+        //   padding: const EdgeInsets.symmetric(vertical: 5),
+        //   decoration: BoxDecoration(
+        //     color: Colors.grey.withOpacity(0.3),
+        //   ),
+        //   child: GestureDetector(
+        //     child: const GenericLabel("Horarios", 15),
+        //     onTap: selectStudents,
+        //   ),
+        // ),
         Container(
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(15),
@@ -250,14 +246,14 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           titleText: 'Nombre de la clase',
           customFontSize: 15,
         ),
-        GestureDetector(
-          child: const GenericLabel("Alumnos", 15.0),
-          onTap: selectStudents,
-        ),
-        GestureDetector(
-          child: const GenericLabel("Horarios", 15.0),
-          onTap: selectStudents,
-        ),
+        // GestureDetector(
+        //   child: const GenericLabel("Alumnos", 15.0),
+        //   onTap: selectStudents,
+        // ),
+        // GestureDetector(
+        //   child: const GenericLabel("Horarios", 15.0),
+        //   onTap: selectStudents,
+        // ),
         Row(
           children: [
             const GenericLabel("Calificacion basada en", 15.0),
