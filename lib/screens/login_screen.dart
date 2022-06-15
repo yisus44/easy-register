@@ -13,10 +13,9 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const CustomAppBar(
-          "assets/logo_small_transparent.png", ""),
+          "assets/logo_small_transparent.png", "", "Registrarse","Configuración"),
         elevation: 0,
-        
-        ),
+      ),
 
       body: SingleChildScrollView(
         child: Column(

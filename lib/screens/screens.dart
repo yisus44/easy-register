@@ -1,5 +1,6 @@
 //importaciones,exportaciones
 
+
 export 'package:easy_register/screens/add_student_screen.dart';
 
 export 'package:easy_register/screens/class_screen.dart';
