@@ -1,3 +1,5 @@
+import 'package:easy_register/core/models/common/evaluation.dart';
+import 'package:easy_register/core/models/common/student.dart';
 import 'package:easy_register/core/models/common/teacher.dart';
 import 'package:easy_register/core/models/common/user.dart';
 
@@ -5,7 +7,9 @@ class Class {
   final int id;
   final int teacherId;
   final String name;
-  final Teacher teacher;
+  final Teacher? teacher;
+  List<Evaluation>? evaluations;
+  List<Student>? students;
 
   static List<Class> fromJsonList(List<dynamic> parsedJson) {
     List<Class> classes = parsedJson.map((classSchool) {
@@ -30,5 +34,17 @@ class Class {
         Teacher(0, 0, DateTime.now(), const User("error", "error", 0)));
   }
 
-  Class(this.id, this.teacherId, this.name, this.teacher);
+  factory Class.fromJson(dynamic parsedJson) {
+    //FIX LATER
+    final List<Evaluation> evaluations =
+        parsedJson["evaluations"].map((evaluation) {
+      return Evaluation(evaluation["name"], evaluation["value"]);
+    });
+
+    return Class(parsedJson["id"], parsedJson["teacher_id"], parsedJson["name"],
+        parsedJson["base"]);
+  }
+
+  Class(this.id, this.teacherId, this.name, this.teacher,
+      {this.evaluations, this.students});
 }

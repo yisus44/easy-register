@@ -1,4 +1,10 @@
+import 'dart:math';
+
+import 'package:easy_register/core/models/common/evaluation.dart';
+import 'package:easy_register/core/models/common/student.dart';
+import 'package:easy_register/core/services/classes/class_service.dart';
 import 'package:easy_register/widgets/generic_button.dart';
+import 'package:easy_register/widgets/utils/Modal.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -7,13 +13,16 @@ import '../widgets/genericField.dart';
 import '../widgets/genericLabel.dart';
 
 class CreateClassScreen extends StatefulWidget {
-  const CreateClassScreen({Key? key}) : super(key: key);
+  final int teacherId;
+  const CreateClassScreen({required this.teacherId, Key? key})
+      : super(key: key);
 
   @override
   State<CreateClassScreen> createState() => _CreateClassScreenState();
 }
 
 class _CreateClassScreenState extends State<CreateClassScreen> {
+  //first one means 10 percent
   final List<bool> _selections = [true, false];
   bool isTenPercent = true;
   final List<String> groups = ["6D", "3F", "Private"];
@@ -33,7 +42,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     setState(
       () {
         if (val != null) {
-          className = val.toString();
+          selectedGroup = val.toString();
         }
       },
     );
@@ -48,6 +57,75 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
     setState(() {
       cards.insert(0, newCard);
     });
+  }
+
+  void sendClass() async {
+    isTenPercent = _selections[0];
+    final String name = className;
+    final int teacherId = widget.teacherId;
+    final int base = isTenPercent ? 10 : 100;
+    double totalEvaluationSum = 0;
+    List<double> totalEvaluationPoint = [];
+
+    cards.removeAt(cards.length - 1);
+    final List<Evaluation> evaluations = cards.map((card) {
+      double point = double.parse(card.cardDescription);
+      totalEvaluationPoint.add(point);
+      return Evaluation(card.cardTitle, point);
+    }).toList();
+
+    totalEvaluationPoint.forEach((e) => totalEvaluationSum += e);
+
+    final List<Student> formStudents = [
+      Student("Jesus Adrian", "Flores Arevalo",
+          "${DateTime.now().toString()}@gmail.com", "3325615651", 0)
+    ];
+    //we delete the card of Agregar rubro
+
+    //validate data
+    if (name == "") {
+      Modal.showModalDialog(
+          "Invalid information", "Classname should not be empty", context);
+
+      cards.insert(cards.length, const CardPayload("Agregar rubro", "+"));
+      return;
+    }
+
+    if (evaluations.isEmpty) {
+      Modal.showModalDialog(
+          "Invalid information", "Not enough evaluations", context);
+
+      cards.insert(cards.length, const CardPayload("Agregar rubro", "+"));
+      return;
+    }
+
+    if (isTenPercent && totalEvaluationSum != 10.00) {
+      Modal.showModalDialog(
+          "Invalid information",
+          "Your evaluation must sum 10. You have($totalEvaluationSum)",
+          context);
+
+      cards.insert(cards.length, const CardPayload("Agregar rubro", "+"));
+      return;
+    }
+
+    if (!isTenPercent && totalEvaluationSum != 100) {
+      Modal.showModalDialog(
+          "Invalid information",
+          "Your evaluation must sum 100.You have($totalEvaluationSum)",
+          context);
+
+      cards.insert(cards.length, const CardPayload("Agregar rubro", "+"));
+      return;
+    }
+
+    const ClassService classService =
+        ClassService("https://gentle-mountain-69254.herokuapp.com/api/v1");
+    final response = await classService.createClass(
+        name, teacherId, evaluations, base, formStudents);
+    if (response.data) {
+      Navigator.pushNamed(context, '/home');
+    }
   }
 
   Widget _buildPortraitMode() {
@@ -150,9 +228,12 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
           margin: const EdgeInsets.only(right: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              GenericButton(buttonText: "Crear"),
-              GenericButton(buttonText: "Cancelar")
+            children: [
+              GenericButton(
+                buttonText: "Crear",
+                onClick: sendClass,
+              ),
+              const GenericButton(buttonText: "Cancelar")
             ],
           ),
         )
