@@ -5,7 +5,6 @@ class AuthenticationButton extends StatelessWidget {
   final Function? onClick;
   const AuthenticationButton({Key? key, required this.buttonText, this.onClick})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
