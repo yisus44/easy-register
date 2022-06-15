@@ -56,6 +56,7 @@ class _AddClassState extends State<AddClass> {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const LogoCompleto(heightSize: 130),

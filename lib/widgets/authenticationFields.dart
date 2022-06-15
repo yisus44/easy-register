@@ -25,7 +25,7 @@ final String titleText;
                   '${titleText}',
                   style: const TextStyle(
                     color:Colors.black,
-                    fontSize: 25,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold
                   ),
                 ),
@@ -38,9 +38,10 @@ final String titleText;
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 obscureText: typeText,
-                decoration: InputDecoration(
-                  fillColor: const Color.fromARGB(255, 209, 213, 216).withOpacity(0.5),
-                  filled: true,
+                decoration: 
+                  InputDecoration(
+                  fillColor: const Color.fromARGB(255, 24, 102, 162).withOpacity(0.5),
+                  filled: true,                  
                 ),
               ),
             ),

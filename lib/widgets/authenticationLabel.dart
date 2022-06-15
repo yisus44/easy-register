@@ -6,13 +6,25 @@ class AuthenticationLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Text(
-        '${titleText}',
-        style: const TextStyle(
-            color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
-      ),
+    return  
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            '${titleText}',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          const Icon(
+            Icons.calendar_month,
+            color: Color.fromARGB(255, 14 , 100, 115),
+           // Color.fromARGB(255, 14, 100, 115)
+            size: 24.0,
+          ),
+        ]
     );
   }
 }

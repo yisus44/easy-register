@@ -1,7 +1,6 @@
 
 
 import 'package:easy_register/widgets/widgets.dart';
-
 import 'package:flutter/material.dart';
 
 
@@ -13,25 +12,38 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const CustomAppBar(
+          "assets/logo_small_transparent.png", ""),
         elevation: 0,
         
         ),
 
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
 
-          const LogoCompleto(heightSize: 230),
-          const AuthenticationFields(titleText: 'Nombre',typeText: false),
-          const AuthenticationFields(titleText: 'Contraseña',typeText: true),
+            const LogoCompleto(heightSize: 230),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                AuthenticationFields(titleText: 'Nombre',typeText: false),
+                AuthenticationFields(titleText: 'Contraseña',typeText: true),
+              ],
+            ),
 
-          const AuthenticationButton(buttonText: 'Ingresar'),
-
-          registerLink()
-
-
-        ],
+            Container(
+              margin: const EdgeInsets.all(50),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const AuthenticationButton(buttonText: 'Ingresar'),
+                  registerLink()
+                ],
+              ),
+            )
+          ],
+        ),
       )
     );
   }
@@ -46,26 +58,13 @@ class registerLink extends StatelessWidget {
         child: const Text(
           'Registrate',
           style: TextStyle(
-            color: Colors.blue,
+            color: Colors.black,
             decoration: TextDecoration.underline,
-            fontSize: 25),
+            fontSize: 15),
           ),
         onTap: ()=> Navigator.pushNamed(context, 'register'),
         );
       
-      
-      
-      // child: TextButton(
-      //   child: const Text(
-      //     'Registrate',
-      //     style: TextStyle(
-      //       fontSize: 25,
-      //       decoration: TextDecoration.underline,
-      //       ),
-      //   ),
-      //   onPressed: () {} , 
-      // )
-    
   }
 }
 

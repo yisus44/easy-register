@@ -33,7 +33,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text('Register'),
+          title: const CustomAppBar(
+          "assets/logo_small_transparent.png", ""),
           elevation: 0,
         ),
         body: Column(
@@ -43,16 +44,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
             //campos
             const AuthenticationFields(typeText: false, titleText: 'Nombre'),
             // const AuthenticationFields(typeText: false, titleText: ''),
-            GestureDetector(
-              child: const AuthenticationLabel("Fecha de nacimiento"),
-              onTap: selectDate,
+            Container(
+              decoration: BoxDecoration(border: Border.all()),
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+              child: GestureDetector(
+                child: const AuthenticationLabel("Fecha de nacimiento"),
+                onTap: selectDate,
+              ),
             ),
 
             const AuthenticationFields(typeText: true, titleText: 'Contraseña'),
             const AuthenticationFields(
                 typeText: true, titleText: 'Confirmar contraseña'),
 
-            const AuthenticationButton(buttonText: 'Registrarse'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const[
+                AuthenticationButton(buttonText: 'Ingresar'),
+                AuthenticationButton(buttonText: 'Registrarse'),
+
+              ],
+            )
+
           ],
         ));
   }
