@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
 class AppRoutes {
-  static const initialRoute = 'login';
+  static const initialRoute = 'student';
 
   static Map<String, Widget Function(BuildContext)> routes = {
     'login': (_) => LoginScreen(),
@@ -13,6 +13,7 @@ class AppRoutes {
           teacherId: 1,
         ),
     'student': (_) => StudentScreen(),
+    'test': (_) => TestScreen()
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
