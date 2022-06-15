@@ -97,7 +97,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const CustomAppBar("assets/logo_small_transparent.png", ""),
+          title: const CustomAppBar("assets/logo_small_transparent.png", "",
+              "Configuración", "Salir"),
           elevation: 0,
         ),
         body: Column(

@@ -60,7 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const CustomAppBar("assets/logo_small_transparent.png", ""),
+          title: const CustomAppBar("assets/logo_small_transparent.png", "",
+              "Registrarse", "Configuración"),
           elevation: 0,
         ),
         body: SingleChildScrollView(
@@ -71,18 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AuthenticationFields(
-                    titleText: 'Correo',
-                    typeText: false,
-                    onChange: getUsenamer,
-                    inputType: TextInputType.emailAddress,
-                  ),
-                  AuthenticationFields(
-                    titleText: 'Contraseña',
-                    typeText: true,
-                    onChange: getPassword,
-                    onSubmited: onSubmit,
-                  ),
+                  AuthenticationFields(titleText: 'Nombre', typeText: false),
+                  AuthenticationFields(titleText: 'Contraseña', typeText: true),
                 ],
               ),
               Container(
@@ -90,6 +81,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    AuthenticationFields(
+                      titleText: 'Correo',
+                      typeText: false,
+                      onChange: getUsenamer,
+                      inputType: TextInputType.emailAddress,
+                    ),
+                    AuthenticationFields(
+                      titleText: 'Contraseña',
+                      typeText: true,
+                      onChange: getPassword,
+                      onSubmited: onSubmit,
+                    ),
                     AuthenticationButton(
                       buttonText: 'Ingresar',
                       onClick: onSubmit,
