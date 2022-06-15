@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           CardSlider(
             carouselName: 'Material',
-            cardsCount: cards.length,
+            cardsCount: 5,
             cardPayload: cards,
           ),
         ],
