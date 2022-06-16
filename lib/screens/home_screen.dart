@@ -1,3 +1,4 @@
+import 'package:easy_register/screens/screens.dart';
 import 'package:easy_register/widgets/generic_button.dart';
 import 'package:easy_register/widgets/widgets.dart';
 import '../core/services/classes/class_service.dart';
@@ -59,14 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
             cardPayload: cards,
           ),
           CardSlider(
-            carouselName: 'Presentaciones easer',
-            cardsCount: cards.length,
-            cardPayload: cards,
-          ),
-          CardSlider(
             carouselName: 'Material',
-            cardsCount: 5,
-            cardPayload: cards,
+            cardsCount: 1,
+            cardPayload: const [CardPayload("Materiales", "Ver materiales")],
+            onLast: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const MaterialScreen(countColumn: 2)))
+            },
           ),
           GenericButton(
             buttonText: "Ir a agregar clase",

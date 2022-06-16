@@ -13,7 +13,7 @@ class AppRoutes {
     'student': (_) => StudentScreen(),
     'grades': (_) => const GradesScreen(),
     'material': (_) => const MaterialScreen(
-          countColumn: 3,
+          countColumn: 2,
         ),
     'test': (_) => TestScreen()
   };

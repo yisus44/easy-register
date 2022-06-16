@@ -1,4 +1,7 @@
+import 'package:easy_register/widgets/utils/Modal.dart';
 import 'package:flutter/material.dart';
+import 'package:focused_menu/focused_menu.dart';
+import 'package:focused_menu/modals.dart';
 
 import '../widgets/widgets.dart';
 
@@ -12,7 +15,7 @@ class MaterialScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const CustomAppBar("assets/logo_small_transparent.png", "",
-            "Registrarse", "Configuración"),
+            "Configuracion", "Salir"),
         elevation: 0,
       ),
       body: Container(
@@ -27,12 +30,7 @@ class MaterialScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  IconButton(icon: const Icon(Icons.sort), onPressed: () {})
-                ],
-              ),
+
               const SizedBox(
                 height: 10,
               ),
@@ -46,16 +44,38 @@ class MaterialScreen extends StatelessWidget {
                             // EACH LIST ITEM
                           Container(
                             margin: const EdgeInsets.all(10),
-                            child: Card(
-                              elevation: 15,
-                              shadowColor: Colors.blueGrey,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Image.asset("assets/image_$e.jpg"),
+                            child: FocusedMenuHolder(
+                              blurSize: 4,
+                              blurBackgroundColor: Colors.white,
+                              menuWidth: MediaQuery.of(context).size.width*0.5,
+                              menuItemExtent: 70,
+                              animateMenuItems: false,
+                              duration: const Duration(milliseconds: 500),
+                              onPressed: (){},
+                              menuItems: <FocusedMenuItem>[
+                                FocusedMenuItem(
+                                  title: const Text("Eliminar"),
+                                   onPressed: (){
+                                    Modal.showModalDialog("Eliminar", "Seguro que desea eliminar este elemento?", context);
+                                   },
+                                   trailingIcon: const Icon(Icons.delete)
+                                ),
+                                FocusedMenuItem(title: const Text("Mostrar"), onPressed: (){
+                                    Modal.showModalDialog("Mostrar", "¿Seguro que desea mostrar este elemento?", context);
+
+                                }, trailingIcon: const Icon(Icons.open_in_full))
                               ],
+                              child: Card(
+                                elevation: 15,
+                                shadowColor: Colors.blueGrey,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Image.asset("assets/image_$e.jpg"),
+                                ],
+                              ),
+                                                    ),
                             ),
-                                                  ),
                           ),
                       )
                       .toList(),

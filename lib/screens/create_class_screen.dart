@@ -198,7 +198,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             ],
           ),
         ),
-        const GenericLabel("Encuadre de asignaciones", 15),
+        
         Container(
           decoration: BoxDecoration(color: Colors.grey.withOpacity(0.3)),
           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -277,7 +277,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             )
           ],
         ),
-        const AuthenticationLabel("Encuadre de asignaciones"),
+
         CardSlider(
           carouselName: "Rubros",
           cardsCount: cards.length,
@@ -304,7 +304,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
             return Center(
               child: orientation == Orientation.portrait
                   ? _buildPortraitMode()
-                  : _buildLandscapeContent(),
+                  : _buildPortraitMode(),
             );
           },
         ));
