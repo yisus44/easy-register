@@ -1,3 +1,4 @@
+import 'package:easy_register/widgets/utils/Modal.dart';
 import 'package:flutter/material.dart';
 
 class StudentCheckbox extends StatefulWidget {
@@ -41,7 +42,7 @@ class _StudentCheckboxState extends State<StudentCheckbox> {
               title: Text('${nameItem}'),
               onChanged: (value) => setState(() {
                 _checkValue = value ?? true;
-                
+                Modal.showModalDialog('Seleccion', 'Selecciono ${nameItem}', context);
               }),
             ),
           ),

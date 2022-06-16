@@ -71,7 +71,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           const MaterialScreen(countColumn: 2)))
             },
           ),
-          GenericButton(
+          Row(children: [
+            GenericButton(
+            buttonText: "Estudiantes",
+            onClick: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          StudentScreen()))
+            },
+          ),
+
+
+            GenericButton(
             buttonText: "Ir a agregar clase",
             onClick: () => {
               Navigator.push(
@@ -81,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           CreateClassScreen(teacherId: widget.teacherId)))
             },
           )
+          ],)
         ],
       )),
     );

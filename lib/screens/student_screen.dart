@@ -1,5 +1,7 @@
+import 'package:easy_register/screens/grades_screen.dart';
 import 'package:easy_register/widgets/QRViewExample.dart';
 import 'package:flutter/material.dart';
+import '../widgets/generic_button.dart';
 import '../widgets/widgets.dart';
 
 class StudentScreen extends StatelessWidget {
@@ -32,16 +34,28 @@ class StudentScreen extends StatelessWidget {
               const StudentCheckbox(nameItemList: 'Alumno 2'),
               const StudentCheckbox(nameItemList: 'Alumno 3'),
 
+              GenericButton(
+            buttonText: "Calificaciones",
+            onClick: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          GradesScreen())),
+            }),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const QRViewExample(),
                   ));
                 },
-                child: const Text('Escaner QR'),
+                child: Container(
+                  margin: const EdgeInsets.all(30),
+                  child: const Text('Escaner QR')),
               ),
 
-        ]),
+    ]
+      ),
     );
   }
 }
