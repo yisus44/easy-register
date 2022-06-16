@@ -1,3 +1,4 @@
+import 'package:easy_register/widgets/QRViewExample.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
 
@@ -29,7 +30,16 @@ class StudentScreen extends StatelessWidget {
               const StudentCheckbox(nameItemList: 'Alumno 1'),
               
               const StudentCheckbox(nameItemList: 'Alumno 2'),
-              const StudentCheckbox(nameItemList: 'Alumno 3')
+              const StudentCheckbox(nameItemList: 'Alumno 3'),
+
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const QRViewExample(),
+                  ));
+                },
+                child: const Text('Escaner QR'),
+              ),
 
         ]),
     );
